@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "diacounter",
+	"version": "${version}",
+	"name": "Diacounter",
+	"description": "Client-side counter for mined diamond ore, shown above the hotbar or as a boss bar. Configure with /counter.",
+	"authors": ["Jan"],
+	"license": "CC0-1.0",
+	"environment": "client",
+	"entrypoints": {
+		"client": ["de.jan.diacounter.client.DiacounterClient"]
+	},
+	"mixins": [
+		{
+			"config": "diacounter.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

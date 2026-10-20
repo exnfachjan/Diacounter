@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "de.jan.diacounter.client.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"BossHealthOverlayMixin",
+		"MultiPlayerGameModeMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

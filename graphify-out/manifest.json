@@ -1,0 +1,110 @@
+{
+  ".claude/settings.json": {
+    "mtime": 1792483149.0291166,
+    "seen": 1792483151.0531602,
+    "ast_hash": "3ac995fbf93552a991ecab9b63f776aa",
+    "semantic_hash": ""
+  },
+  "build.gradle": {
+    "mtime": 1792482749.002668,
+    "seen": 1792483151.0531662,
+    "ast_hash": "85851756e8fb2956f89c7b7a322ce192",
+    "semantic_hash": ""
+  },
+  "gradlew": {
+    "mtime": 1792482739.4478843,
+    "seen": 1792483151.0531685,
+    "ast_hash": "a43be8432bac3ffd05b3769aa42fe996",
+    "semantic_hash": ""
+  },
+  "settings.gradle": {
+    "mtime": 1792482749.0118675,
+    "seen": 1792483151.05317,
+    "ast_hash": "d52d0ce3968fe2d65aa5f7a81c4e224e",
+    "semantic_hash": ""
+  },
+  "src/client/java/de/jan/diacounter/client/BossBarSync.java": {
+    "mtime": 1792485155.282704,
+    "seen": 1792485159.590806,
+    "ast_hash": "ad7e529a5496f6241366574afd92bad8",
+    "semantic_hash": ""
+  },
+  "src/client/java/de/jan/diacounter/client/CounterConfig.java": {
+    "mtime": 1792485803.9978583,
+    "seen": 1792485808.3107991,
+    "ast_hash": "dbeb2b174a55cc9ad15cfe1b67a86b7b",
+    "semantic_hash": ""
+  },
+  "src/client/java/de/jan/diacounter/client/CounterHud.java": {
+    "mtime": 1792485803.9467108,
+    "seen": 1792485808.3108008,
+    "ast_hash": "87e54f9e3ada771248860bbdf76c8fdc",
+    "semantic_hash": ""
+  },
+  "src/client/java/de/jan/diacounter/client/CounterMenu.java": {
+    "mtime": 1792485803.998392,
+    "seen": 1792485808.3108027,
+    "ast_hash": "ca4bb0d12e61e383152f160ec2d526b0",
+    "semantic_hash": ""
+  },
+  "src/client/java/de/jan/diacounter/client/DiacounterClient.java": {
+    "mtime": 1792485393.0854518,
+    "seen": 1792485397.2538898,
+    "ast_hash": "7da7e62e2185d1ab6fb4b2702aa1aae9",
+    "semantic_hash": ""
+  },
+  "src/client/java/de/jan/diacounter/client/mixin/BossHealthOverlayMixin.java": {
+    "mtime": 1792483037.8562658,
+    "seen": 1792483151.053177,
+    "ast_hash": "4612290482936ac94e5c58d4ca773c67",
+    "semantic_hash": ""
+  },
+  "src/client/java/de/jan/diacounter/client/mixin/MultiPlayerGameModeMixin.java": {
+    "mtime": 1792483038.9289374,
+    "seen": 1792483151.0531783,
+    "ast_hash": "6db6e6fca402852fd98268e81792582a",
+    "semantic_hash": ""
+  },
+  "src/client/resources/diacounter.client.mixins.json": {
+    "mtime": 1792483039.9912398,
+    "seen": 1792483151.0531821,
+    "ast_hash": "60132fc2f14ec02aff590c0abea8ac19",
+    "semantic_hash": ""
+  },
+  "src/main/resources/fabric.mod.json": {
+    "mtime": 1792483041.1329143,
+    "seen": 1792483151.0531833,
+    "ast_hash": "dacbd8dffb949aafac642784f022bd37",
+    "semantic_hash": ""
+  },
+  ".claude/CLAUDE.md": {
+    "mtime": 1792483149.0209315,
+    "seen": 1792483151.0531845,
+    "ast_hash": "9b31786b637be3c13978bec4c2330752",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1792483149.028098,
+    "seen": 1792483151.0531855,
+    "ast_hash": "67d88e9d0760c3ba54c75dfd9551c1c5",
+    "semantic_hash": ""
+  },
+  "src/main/resources/assets/diacounter/lang/de_de.json": {
+    "mtime": 1792485803.9994237,
+    "seen": 1792485808.310814,
+    "ast_hash": "94c5973ac6d433c8607f5b477e831805",
+    "semantic_hash": ""
+  },
+  "src/main/resources/assets/diacounter/lang/en_us.json": {
+    "mtime": 1792485803.9989078,
+    "seen": 1792485808.3108158,
+    "ast_hash": "448cca310dc1dbd594306fb56ea39123",
+    "semantic_hash": ""
+  },
+  "src/client/java/de/jan/diacounter/client/Lang.java": {
+    "mtime": 1792485803.911543,
+    "seen": 1792485808.3108065,
+    "ast_hash": "2891f4b3b73d1e2cda1513f8f7d5187d",
+    "semantic_hash": ""
+  }
+}
