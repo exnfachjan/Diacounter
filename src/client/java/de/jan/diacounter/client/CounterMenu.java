@@ -24,6 +24,7 @@ import net.minecraft.server.dialog.action.CustomAll;
 import net.minecraft.server.dialog.body.DialogBody;
 import net.minecraft.server.dialog.body.PlainMessage;
 import net.minecraft.server.dialog.input.BooleanInput;
+import net.minecraft.server.dialog.input.NumberRangeInput;
 import net.minecraft.server.dialog.input.SingleOptionInput;
 import net.minecraft.world.BossEvent.BossBarColor;
 import org.jspecify.annotations.Nullable;
@@ -59,6 +60,8 @@ public final class CounterMenu {
 		inputs.add(new Input("language", new SingleOptionInput(200, enumOptions(Lang.Language.values(), config.language, "diacounter.menu.language."),
 			Lang.tr("diacounter.menu.language"), true)));
 		inputs.add(new Input("icon", new BooleanInput(Lang.tr("diacounter.menu.icon"), config.showIcon, "true", "false")));
+		inputs.add(new Input("timer", new NumberRangeInput(200, Lang.tr("diacounter.menu.timer"), "options.generic_value",
+			new NumberRangeInput.RangeInfo(1, 180, Optional.of((float) config.timerMinutes), Optional.of(1.0F)))));
 		inputs.add(new Input("color", new SingleOptionInput(200, enumOptions(BossBarColor.values(), config.bossColor, "diacounter.menu.color."),
 			Lang.tr("diacounter.menu.color"), true)));
 
@@ -92,6 +95,7 @@ public final class CounterMenu {
 		CounterConfig config = CounterConfig.get();
 		if (id.equals(RESET)) {
 			config.count = 0;
+			CounterTimer.reset();
 		} else if (id.equals(SAVE) && payload.orElse(null) instanceof CompoundTag tag) {
 			config.mode = switch (tag.getStringOr("mode", "hotbar")) {
 				case "bossbar" -> CounterConfig.Mode.BOSSBAR;
@@ -99,6 +103,7 @@ public final class CounterMenu {
 				default -> CounterConfig.Mode.HOTBAR;
 			};
 			config.language = parse(Lang.Language.values(), tag.getStringOr("language", ""), config.language);
+			config.timerMinutes = Math.max(1, Math.round(tag.getFloatOr("timer", config.timerMinutes)));
 			config.showIcon = tag.getBooleanOr("icon", config.showIcon);
 			config.bossColor = parse(BossBarColor.values(), tag.getStringOr("color", ""), config.bossColor);
 		}

@@ -1,5 +1,6 @@
 package de.jan.diacounter.client;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -18,7 +19,17 @@ public final class CounterHud {
 	private static final Component BAR_ICON = Component.object(new AtlasSprite(AtlasSprite.DEFAULT_ATLAS, Identifier.withDefaultNamespace("block/diamond_ore")));
 
 	public static Component label() {
-		return Lang.tr("diacounter.hud.label", CounterConfig.get().count);
+		Component label = Lang.tr("diacounter.hud.label", CounterConfig.get().count);
+		String time = CounterTimer.formatted();
+		if (time == null) {
+			return label;
+		}
+		ChatFormatting color = switch (CounterTimer.state()) {
+			case PAUSED -> ChatFormatting.GRAY;
+			case FINISHED -> ChatFormatting.RED;
+			default -> ChatFormatting.WHITE;
+		};
+		return Component.empty().append(label).append(Component.literal(" | " + time).withStyle(color));
 	}
 
 	/** Boss bar title: the label, with a diamond ore sprite in front if enabled. */

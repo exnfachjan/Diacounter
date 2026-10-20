@@ -3,14 +3,12 @@
   "1": "MultiPlayerGameModeMixin.java",
   "2": "CounterConfig",
   "3": "DiacounterClient.java",
-  "4": "CounterMenu",
+  "4": "PlacedOres.java",
   "5": ".get",
   "6": "gradlew",
   "7": "CLAUDE.md",
   "8": ".claude/CLAUDE.md",
   "9": "build.gradle",
   "10": "settings.gradle",
-  "11": "Lang.java",
-  "12": "PlacedOres.java",
-  "13": "BossHealthOverlayMixin.java"
+  "11": "Lang.java"
 }

@@ -34,13 +34,36 @@ public class DiacounterClient implements ClientModInitializer {
 
 		// Client-side command: never sent to the server, so nothing has to be installed there.
 		ClientCommandRegistrationCallback.EVENT.register((dispatcher, buildContext) ->
-			dispatcher.register(ClientCommands.literal("counter").executes(context -> {
-				// The chat screen closes right after the command runs, so open the menu on the next tick.
-				openMenuNextTick = true;
-				return Command.SINGLE_SUCCESS;
-			})));
+			dispatcher.register(ClientCommands.literal("counter")
+				.executes(context -> {
+					// The chat screen closes right after the command runs, so open the menu on the next tick.
+					openMenuNextTick = true;
+					return Command.SINGLE_SUCCESS;
+				})
+				.then(ClientCommands.literal("start").executes(context -> {
+					CounterTimer.start();
+					context.getSource().sendFeedback(Lang.tr("diacounter.timer.started", CounterConfig.get().timerMinutes));
+					return Command.SINGLE_SUCCESS;
+				}))
+				.then(ClientCommands.literal("pause").executes(context -> {
+					if (!CounterTimer.pause()) {
+						context.getSource().sendError(Lang.tr("diacounter.timer.not_running"));
+						return 0;
+					}
+					context.getSource().sendFeedback(Lang.tr("diacounter.timer.paused"));
+					return Command.SINGLE_SUCCESS;
+				}))
+				.then(ClientCommands.literal("resume").executes(context -> {
+					if (!CounterTimer.resume()) {
+						context.getSource().sendError(Lang.tr("diacounter.timer.not_paused"));
+						return 0;
+					}
+					context.getSource().sendFeedback(Lang.tr("diacounter.timer.resumed"));
+					return Command.SINGLE_SUCCESS;
+				}))));
 
 		ClientTickEvents.END_CLIENT_TICK.register(minecraft -> {
+			CounterTimer.tick(minecraft);
 			if (openMenuNextTick) {
 				openMenuNextTick = false;
 				CounterMenu.open(minecraft);
@@ -54,6 +77,9 @@ public class DiacounterClient implements ClientModInitializer {
 
 	/** Called by the block-break mixin for every diamond ore the local player breaks. */
 	public static void onDiamondOreMined() {
+		if (!CounterTimer.countingAllowed()) {
+			return;
+		}
 		CounterConfig.get().count++;
 		CounterConfig.save();
 	}

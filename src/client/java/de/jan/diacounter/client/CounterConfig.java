@@ -23,6 +23,8 @@ public final class CounterConfig {
 	public BossBarColor bossColor = BossBarColor.BLUE;
 	public Lang.Language language = Lang.Language.AUTO;
 	public boolean showIcon = true;
+	/** Length of the countdown started with /counter start. */
+	public int timerMinutes = 30;
 
 	public static CounterConfig get() {
 		return instance;
@@ -53,6 +55,7 @@ public final class CounterConfig {
 		if (mode == null) mode = Mode.HOTBAR;
 		if (language == null) language = Lang.Language.AUTO;
 		if (bossColor == null) bossColor = BossBarColor.BLUE;
+		timerMinutes = Math.max(1, timerMinutes);
 		count = Math.max(0, count);
 		return this;
 	}

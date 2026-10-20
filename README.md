@@ -11,12 +11,25 @@ Die Mod muss nur auf dem Client installiert sein und funktioniert deshalb auch a
 - Alle Einstellungen im Menü `/counter` (Dialog-Bildschirm von Minecraft):
   - Anzeige: Hotbar, Bossbar oder aus
   - Symbol an/aus (Hotbar und Bossbar)
+  - Länge des Timers (1 bis 180 Minuten)
   - Bossbar-Farbe
   - Sprache: Spielsprache, Deutsch oder English (unabhängig von der Spielsprache)
   - Zähler zurücksetzen
 - Der Zählerstand zählt nur, was du abbaust, während die Mod installiert ist. Er gilt global und nicht pro Welt oder Server.
 
 Gespeichert wird in `config/diacounter.json`.
+
+## Timer
+
+Ein Countdown, der neben dem Zähler (Hotbar und Bossbar) angezeigt wird. Die Länge stellst du im Menü ein.
+
+| Befehl | Wirkung |
+| --- | --- |
+| `/counter start` | startet den Timer (oder startet ihn neu) |
+| `/counter pause` | pausiert den Timer (Anzeige wird grau) |
+| `/counter resume` | setzt den Timer fort |
+
+Am Ende kommt eine Chat-Nachricht mit Ton. Der Timer läuft nicht, solange das Spiel pausiert ist. Sobald der Timer abgelaufen ist, wird nichts mehr dazugezählt (die Zeit steht dann rot auf 0:00). Mit `/counter start` oder „Zähler zurücksetzen“ zählt er wieder. Ohne gestarteten Timer zählt der Zähler wie gewohnt.
 
 ## Voraussetzungen
 
