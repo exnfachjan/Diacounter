@@ -24,7 +24,6 @@ import net.minecraft.server.dialog.action.CustomAll;
 import net.minecraft.server.dialog.body.DialogBody;
 import net.minecraft.server.dialog.body.PlainMessage;
 import net.minecraft.server.dialog.input.BooleanInput;
-import net.minecraft.server.dialog.input.NumberRangeInput;
 import net.minecraft.server.dialog.input.SingleOptionInput;
 import net.minecraft.world.BossEvent.BossBarColor;
 import org.jspecify.annotations.Nullable;
@@ -60,7 +59,6 @@ public final class CounterMenu {
 		inputs.add(new Input("language", new SingleOptionInput(200, enumOptions(Lang.Language.values(), config.language, "diacounter.menu.language."),
 			Lang.tr("diacounter.menu.language"), true)));
 		inputs.add(new Input("icon", new BooleanInput(Lang.tr("diacounter.menu.icon"), config.showIcon, "true", "false")));
-		inputs.add(new Input("offset", slider("diacounter.menu.offset", -30, 60, config.hotbarOffset)));
 		inputs.add(new Input("color", new SingleOptionInput(200, enumOptions(BossBarColor.values(), config.bossColor, "diacounter.menu.color."),
 			Lang.tr("diacounter.menu.color"), true)));
 
@@ -72,11 +70,6 @@ public final class CounterMenu {
 			button("diacounter.menu.reset", RESET)
 		);
 		return new MultiActionDialog(common, actions, Optional.empty(), 2);
-	}
-
-	private static NumberRangeInput slider(String key, int min, int max, int initial) {
-		return new NumberRangeInput(200, Lang.tr(key), "options.generic_value",
-			new NumberRangeInput.RangeInfo(min, max, Optional.of((float) initial), Optional.of(1.0F)));
 	}
 
 	private static SingleOptionInput.Entry option(String id, String translationKey, boolean initial) {
@@ -107,7 +100,6 @@ public final class CounterMenu {
 			};
 			config.language = parse(Lang.Language.values(), tag.getStringOr("language", ""), config.language);
 			config.showIcon = tag.getBooleanOr("icon", config.showIcon);
-			config.hotbarOffset = Math.round(tag.getFloatOr("offset", config.hotbarOffset));
 			config.bossColor = parse(BossBarColor.values(), tag.getStringOr("color", ""), config.bossColor);
 		}
 		CounterConfig.save();

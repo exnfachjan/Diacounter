@@ -23,8 +23,6 @@ public final class CounterConfig {
 	public BossBarColor bossColor = BossBarColor.BLUE;
 	public Lang.Language language = Lang.Language.AUTO;
 	public boolean showIcon = true;
-	/** Extra pixels above the default hotbar-text position. */
-	public int hotbarOffset = -30;
 
 	public static CounterConfig get() {
 		return instance;

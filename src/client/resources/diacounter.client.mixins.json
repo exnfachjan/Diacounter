@@ -3,6 +3,7 @@
 	"package": "de.jan.diacounter.client.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"client": [
+		"BlockItemMixin",
 		"BossHealthOverlayMixin",
 		"MultiPlayerGameModeMixin"
 	],

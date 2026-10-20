@@ -6,12 +6,11 @@ Die Mod muss nur auf dem Client installiert sein und funktioniert deshalb auch a
 
 ## Funktionen
 
-- Zählt jedes Diamanterz (`diamond_ore` und `deepslate_diamond_ore`), das du selbst abbaust.
+- Zählt jedes Diamanterz (`diamond_ore` und `deepslate_diamond_ore`), das du selbst abbaust. Erz, das du selbst platziert hast, wird beim Abbauen nicht gezählt (gemerkt pro Welt/Server in `config/diacounter-placed.json`).
 - Anzeige über der Hotbar (mit Erz-Symbol) oder als Bossbar. Die Bossbar ist bei 100, 200, 300 usw. voll und beginnt danach neu.
 - Alle Einstellungen im Menü `/counter` (Dialog-Bildschirm von Minecraft):
   - Anzeige: Hotbar, Bossbar oder aus
   - Symbol an/aus (Hotbar und Bossbar)
-  - Höhe der Hotbar-Anzeige
   - Bossbar-Farbe
   - Sprache: Spielsprache, Deutsch oder English (unabhängig von der Spielsprache)
   - Zähler zurücksetzen

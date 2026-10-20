@@ -36,8 +36,8 @@ public final class CounterHud {
 		int textWidth = minecraft.font.width(text);
 		int iconWidth = config.showIcon ? 18 : 0;
 		int x = (graphics.guiWidth() - textWidth - iconWidth) / 2;
-		// Above the status bars and the held-item tooltip.
-		int y = graphics.guiHeight() - 80 - config.hotbarOffset;
+		// Just above the held-item name.
+		int y = graphics.guiHeight() - 69;
 		if (config.showIcon) {
 			graphics.item(ICON, x, y - 4);
 			x += iconWidth;

@@ -1,6 +1,7 @@
 package de.jan.diacounter.client.mixin;
 
 import de.jan.diacounter.client.DiacounterClient;
+import de.jan.diacounter.client.PlacedOres;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.core.BlockPos;
@@ -24,7 +25,9 @@ public abstract class MultiPlayerGameModeMixin {
 	@Inject(method = "destroyBlock", at = @At("HEAD"))
 	private void diacounter$rememberBlock(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
 		this.diacounter$wasDiamondOre = this.minecraft.level != null
-			&& DiacounterClient.isDiamondOre(this.minecraft.level.getBlockState(pos).getBlock());
+			&& DiacounterClient.isDiamondOre(this.minecraft.level.getBlockState(pos).getBlock())
+			// Ore the player placed themselves is not counted (the mark is dropped either way).
+			&& !PlacedOres.consume(this.minecraft.level, pos);
 	}
 
 	@Inject(method = "destroyBlock", at = @At("RETURN"))
